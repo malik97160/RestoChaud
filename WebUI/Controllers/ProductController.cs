@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Application.Products.Queries;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace RestoChaud.Controllers
 {
     public class ProductController : BaseController
     {
         // GET: api/<controller>
-        [HttpGet("{id}")]
+        [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult<int>> Get(int id)
+        public async Task<ActionResult<List<ProductDto>>> GetAllProducts()
         {
-            var product = 5;
-            return Ok(product);
+            var query = new GetAllProductsQuery();
+            var result = await Mediator.Send(query).ConfigureAwait(false);
+            return Ok(result);
+
         }
     }
 }
