@@ -1,14 +1,13 @@
 using Application;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
-using System.Reflection;
+using Application.Products.Commands.CreateProduct;
 
 namespace RestoChaud
 {
@@ -26,7 +25,7 @@ namespace RestoChaud
         {
             services
                 .AddControllersWithViews()
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly()));
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateProductCommand>()); 
             services.AddApplication();
 
             // In production, the Angular files will be served from this directory
