@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
 using Application.Products.Commands.CreateProduct;
+using WebUI.Common;
 
 namespace RestoChaud
 {
@@ -65,6 +66,7 @@ namespace RestoChaud
                 app.UseHsts();
             }
 
+            app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
