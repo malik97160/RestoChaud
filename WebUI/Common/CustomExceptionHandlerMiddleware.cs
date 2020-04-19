@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
+using Serilog;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -25,6 +26,7 @@ namespace WebUI.Common
             }
             catch (Exception ex)
             {
+                Log.Error("{@Exception}", ex);
                 await HandleExceptionAsync(context, ex);
             }
         }
