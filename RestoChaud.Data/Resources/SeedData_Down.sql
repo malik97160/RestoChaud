@@ -1,0 +1,6 @@
+DELETE FROM [dbo].[Customers]
+DELETE FROM [dbo].[Products]
+DELETE FROM [dbo].[ProductCompositions]
+DELETE FROM [dbo].[Categories]
+DELETE FROM [dbo].[Companies]
+DELETE FROM [dbo].[Sites]

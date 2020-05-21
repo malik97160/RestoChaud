@@ -15,9 +15,9 @@ namespace RestoChaud.Controllers
     {
         // GET: api/<controller>
         [HttpGet]
-        public async Task<ActionResult<List<ProductDto>>> GetAllProducts()
+        public async Task<ActionResult<List<ProductDto>>> GetAllProductsBySupplierId(int supplierId)
         {
-            var query = new GetAllProductsQuery();
+            var query = new GetAllProductsQuery(supplierId);
             var result = await Mediator.Send(query).ConfigureAwait(false);
             return Ok(result);
         }
@@ -26,7 +26,7 @@ namespace RestoChaud.Controllers
         public async Task<ActionResult<ProductDto>> GetProductById(int id)
         {
             var query = new GetProductByIdQuery(id);
-            var result = await Mediator.Send(query);
+            var result = await Mediator.Send(query).ConfigureAwait(false);
             return Ok(result);
         }
 
@@ -35,7 +35,7 @@ namespace RestoChaud.Controllers
         [ProducesDefaultResponseType]
         public async Task<IActionResult> Update([FromBody]UpdateProductRequest model)
         {
-            await Mediator.Send(new UpdateProductCommand(model.ProductId, model.ProductName, model.CategoryId, model.QuantityPerUnit, model.UnitPrice, model.UnitsInStock));
+            await Mediator.Send(new UpdateProductCommand(model.ProductId, model.ProductName, model.CategoryId, model.QuantityPerUnit, model.UnitPrice, model.UnitsInStock, model.SupplierId)).ConfigureAwait(false);
             return NoContent();
         }
 
@@ -44,7 +44,7 @@ namespace RestoChaud.Controllers
         [ProducesDefaultResponseType]
         public async Task<IActionResult> Create([FromBody] CreateProductRequest model)
         {
-            await Mediator.Send(new CreateProductCommand(model.ProductName, model.CategoryId, model.QuantityPerUnit, model.UnitPrice, model.UnitsInStock));
+            await Mediator.Send(new CreateProductCommand(model.ProductName, model.CategoryId, model.QuantityPerUnit, model.UnitPrice, model.UnitsInStock, model.SupplierId)).ConfigureAwait(false);
             return NoContent();
         }
 

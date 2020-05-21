@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "WebUI\WebUI.csproj", "{E0C37728-B0B5-43B5-9728-8EF92AA34522}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{D2E73CE1-4BBC-47E4-8B98-6890EFC333EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{D2E73CE1-4BBC-47E4-8B98-6890EFC333EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestoChaud.Data", "RestoChaud.Data\RestoChaud.Data.csproj", "{AF74BFC6-C198-41EB-95DA-4703D44E3493}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D2E73CE1-4BBC-47E4-8B98-6890EFC333EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2E73CE1-4BBC-47E4-8B98-6890EFC333EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2E73CE1-4BBC-47E4-8B98-6890EFC333EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF74BFC6-C198-41EB-95DA-4703D44E3493}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF74BFC6-C198-41EB-95DA-4703D44E3493}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF74BFC6-C198-41EB-95DA-4703D44E3493}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF74BFC6-C198-41EB-95DA-4703D44E3493}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

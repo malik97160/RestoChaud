@@ -12,5 +12,6 @@ namespace WebUI.RequestModel
         public decimal QuantityPerUnit { get; set; }
         public decimal? UnitPrice { get; set; }
         public decimal? UnitsInStock { get; set; }
+        public int SupplierId { get; set; }
     }
 }

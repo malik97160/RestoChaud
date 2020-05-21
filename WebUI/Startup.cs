@@ -9,6 +9,8 @@ using FluentValidation.AspNetCore;
 using Microsoft.OpenApi.Models;
 using Application.Products.Commands.CreateProduct;
 using WebUI.Common;
+using RestoChaud.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace RestoChaud
 {
@@ -24,6 +26,12 @@ namespace RestoChaud
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<RestoChaudContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("RestoChaudDatabase")));
+
+            services.AddScoped<IRestoChaudContext>(provider => provider.GetService<RestoChaudContext>());
+
+
             services
                 .AddControllersWithViews()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<CreateProductCommand>()); 

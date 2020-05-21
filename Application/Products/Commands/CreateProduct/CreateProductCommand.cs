@@ -8,8 +8,8 @@ namespace Application.Products.Commands.CreateProduct
 {
     public class CreateProductCommand : ProductCommand
     {
-        public CreateProductCommand(string productName, int categoryId, decimal quantityPerUnit, decimal? unitPrice, decimal? unitsInStock) 
-            : base(productName, categoryId, quantityPerUnit, unitPrice, unitsInStock)
+        public CreateProductCommand(string productName, int categoryId, decimal quantityPerUnit, decimal? unitPrice, decimal? unitsInStock, int supplierId) 
+            : base(productName, categoryId, quantityPerUnit, unitPrice, unitsInStock, supplierId)
         {
         }
     }

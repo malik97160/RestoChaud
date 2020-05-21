@@ -8,5 +8,10 @@ namespace Application.Products.Queries
 {
     public class GetAllProductsQuery : IRequest<List<ProductDto>>
     {
+        public GetAllProductsQuery(int supplierId)
+        {
+            SupplierId = supplierId;
+        }
+        public int SupplierId { get;}
     }
 }

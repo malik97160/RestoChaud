@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Products.Queries.GetProductById
 {
-    public class GetProductByIdQuery : IRequest<ProductDto>
+    public class GetProductByIdQuery : IRequest<ProductVm>
     {
         public GetProductByIdQuery(int productId)
         {
