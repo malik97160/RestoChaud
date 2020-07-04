@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Products.Commands
 {
-    public abstract class ProductCommand : IRequest
+    public abstract class ProductCommand : IRequest<int>
     {
         public ProductCommand(string productName, int categoryId, decimal quantityPerUnit, decimal? unitPrice, decimal? unitsInStock, int supplierId)
         {

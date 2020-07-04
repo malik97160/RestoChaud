@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace Application.Products.Commands.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand>
+    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, int>
     {
         public readonly IRestoChaudContext _context;
         public CreateProductCommandHandler(IRestoChaudContext context)
         {
             _context = context;
         }
-        public async Task<Unit> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        public async Task<int> Handle(CreateProductCommand request, CancellationToken cancellationToken)
         {
             var entity = new Product
             {
@@ -27,8 +27,7 @@ namespace Application.Products.Commands.CreateProduct
 
             _context.Products.Add(entity);
 
-            await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
-            return Unit.Value;
+            return await _context.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
         }
     }
 }
